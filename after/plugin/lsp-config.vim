@@ -25,8 +25,8 @@ local on_attach = function(client, bufnr)
   -- See `:help vim.lsp.*` for documentation on any of the below functions
   buf_set_keymap('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
   buf_set_keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
-  --buf_set_keymap('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
   buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
+  --buf_set_keymap('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
   --buf_set_keymap('i', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
   buf_set_keymap('n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
   buf_set_keymap('n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
@@ -40,6 +40,21 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', '<S-C-j>', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
   buf_set_keymap('n', '<space>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
   buf_set_keymap("n", "<space>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
+
+  -- auto-format
+  --autocmd BufWritePre *.js lua vim.lsp.buf.formatting_sync(nil, 100)
+  --autocmd BufWritePre *.jsx lua vim.lsp.buf.formatting_sync(nil, 100)
+  --autocmd BufWritePre *.ts lua vim.lsp.buf.formatting_sync(nil, 100)
+  --autocmd BufWritePre *.tsx lua vim.lsp.buf.formatting_sync(nil, 100)
+  --autocmd BufWritePre *.py lua vim.lsp.buf.formatting_sync(nil, 100)
+  --autocmd BufWritePre *.go lua vim.lsp.buf.formatting_sync(nil, 100)
+  --autocmd BufWritePre *.mod lua vim.lsp.buf.formatting_sync(nil, 100)
+  --autocmd BufWritePre *.rs lua vim.lsp.buf.formatting_sync(nil, 100)
+  --autocmd BufWritePre *.toml lua vim.lsp.buf.formatting_sync(nil, 100)
+  --autocmd BufWritePre *.json lua vim.lsp.buf.formatting_sync(nil, 100)
+  --autocmd BufWritePre *.yaml lua vim.lsp.buf.formatting_sync(nil, 100)
+  --autocmd BufWritePre *.vim lua vim.lsp.buf.formatting_sync(nil, 100)
+  --autocmd BufWritePre *.lua lua vim.lsp.buf.formatting_sync(nil, 100)
 
   -- formatting
   if client.resolved_capabilities.document_formatting then

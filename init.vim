@@ -61,11 +61,7 @@ set formatoptions+=r
 " Highlights "{{{
 " --------------------------------------------------------------------
 set cursorline
-set cursorcolumn
-
-" Set cursor line color on visual mode
-highlight Visual cterm=NONE ctermbg=236 ctermfg=NONE guibg=Grey40
-highlight LineNr cterm=none ctermfg=240 guifg=#2b506e guibg=#000000
+" set cursorcolumn
 
 augroup BgHighlight
   autocmd!
@@ -114,7 +110,6 @@ runtime ./maps.vim
 if exists("&termguicolors") && exists("&winblend")
   runtime ./colors/*.vim
   syntax on
-" colorscheme neo_solarized
   colorscheme monokai_pro
   set termguicolors
   set winblend=0

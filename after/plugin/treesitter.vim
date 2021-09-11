@@ -29,6 +29,7 @@ require'nvim-treesitter.configs'.setup {
     "graphql",
     "html",
     "java",
+    "javascript",
     "json",
     "json5",
     "lua",
