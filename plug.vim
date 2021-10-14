@@ -19,6 +19,7 @@ if has("nvim")
   Plug 'nvim-lua/completion-nvim'
   Plug 'Chiel92/vim-autoformat'
   Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
+  Plug 'simrat39/rust-tools.nvim'
   Plug 'kyazdani42/nvim-web-devicons'
   Plug 'nvim-lua/popup.nvim'
   Plug 'nvim-lua/plenary.nvim'
