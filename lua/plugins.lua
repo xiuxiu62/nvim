@@ -34,7 +34,7 @@ packer.startup(function(use)
 	use("norcalli/nvim-colorizer.lua")
     -- Show buffer line indents
 	use("lukas-reineke/indent-blankline.nvim")
-    
+
     -----------------------
 	-- Telescope modules --
     -----------------------
