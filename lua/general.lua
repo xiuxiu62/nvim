@@ -34,5 +34,5 @@ vim.opt.colorcolumn = "120"
 vim.opt.completeopt = "menuone,noinsert,noselect"
 vim.opt.shortmess:append("c")
 
-monokai.setup { palette = monokai.pro }
-
+-- monokai.setup { palette = monokai.pro }
+monokai.setup {}

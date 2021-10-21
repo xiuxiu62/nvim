@@ -70,6 +70,8 @@ packer.startup(function(use)
     -- Lua
 	use("folke/lua-dev.nvim")
 	use("ckipp01/stylua-nvim")
+    -- Typescript
+    use('jose-elias-alvarez/nvim-lsp-ts-utils')
     -- Rust
     use('simrat39/rust-tools.nvim')
 	-- Debugging
@@ -98,5 +100,5 @@ packer.startup(function(use)
     -- Discord
 	use("andweeb/presence.nvim")
     -- Desktop notifications
-    use('simrat39/desktop-notify.nvim')
+    --use('simrat39/desktop-notify.nvim')
 end)

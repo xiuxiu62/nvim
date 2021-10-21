@@ -31,8 +31,8 @@ inoremap("<c-u>", "<ESC>viwUi")
 
 -- TAB
 nnoremap('te', ':tabedit ')
-nnoremap('<TAB>', ':tabnext<Return>')
-nnoremap('<S-TAB>', ':tabprev<Return>')
+nnoremap("<TAB>", ":bnext<CR>")
+nnoremap("<S-TAB>", ":bprevious<CR>")
 
 -- Better tabbing
 vnoremap("<", "<gv")

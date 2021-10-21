@@ -7,9 +7,9 @@ setup_auto_format("cpp")
 setup_auto_format("css")
 setup_auto_format("dart")
 setup_auto_format("js")
+setup_auto_format("json")
 setup_auto_format("jsx")
---setup_auto_format("lua", "lua require('stylua-nvim').format_file()")
-setup_auto_format("lua")
+setup_auto_format("lua", "lua require('stylua-nvim').format_file()")
 setup_auto_format("py")
 setup_auto_format("rs")
 setup_auto_format("ts")
@@ -17,8 +17,6 @@ setup_auto_format("tsx")
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
-
-require("desktop-notify").override_vim_notify()
 
 -----------------------
 -- Webdev
@@ -92,7 +90,7 @@ lspconfig.tailwindcss.setup({})
 lspconfig.svelte.setup({ capabilities = capabilities })
 
 lspconfig.clangd.setup({})
--- lspconfig.pylsp.setup({})
+lspconfig.pylsp.setup({})
 
 -----------------------
 -- Lua
@@ -100,18 +98,7 @@ lspconfig.clangd.setup({})
 local luadev = require("lua-dev").setup({
 	lspconfig = {
 		cmd = { "lua-language-server" },
-	},
-	settings = {
-		Lua = {
-			workspace = {
-				library = {
-					["/usr/share/nvim/runtime/lua"] = true,
-					["/usr/share/nvim/runtime/lua/lsp"] = true,
-					["/usr/share/awesome/lib"] = true,
-				},
-			},
-		},
-	},
+	}
 })
 require("lspconfig").sumneko_lua.setup(luadev)
 
