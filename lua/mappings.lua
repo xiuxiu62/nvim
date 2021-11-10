@@ -1,93 +1,79 @@
-local nnoremap = function(lhs, rhs, silent)
-    vim.api.nvim_set_keymap("n", lhs, rhs, { noremap = true, silent = silent })
-end
-
-local inoremap = function(lhs, rhs)
-	vim.api.nvim_set_keymap("i", lhs, rhs, { noremap = true })
-end
-
-local inosilentexprremap = function(lhs, rhs)
-	vim.api.nvim_set_keymap("i", lhs, rhs, { noremap = true, expr = true, silent = true })
-end
-
-local vnoremap = function(lhs, rhs)
-	vim.api.nvim_set_keymap("v", lhs, rhs, { noremap = true })
-end
+local maps = require('utils.maps')
 
 -- smart quit
-nnoremap("qq", '<cmd>lua require("utils/smartquit")()<CR>', true)
+maps.nnoremap("qq", '<cmd>lua require("utils/smartquit")()<CR>', true)
 
 -- Use alt +hjkl  to resize windows
-nnoremap("<M-j>", ":resize -2<CR>")
-nnoremap("<M-k>", ":resize +2<CR>")
-nnoremap("<M-h>", ":vertical resize -2<CR>")
-nnoremap("<M-l>", ":vertical resize +2<CR>")
+maps.nnoremap("<M-j>", ":resize -2<CR>")
+maps.nnoremap("<M-k>", ":resize +2<CR>")
+maps.nnoremap("<M-h>", ":vertical resize -2<CR>")
+maps.nnoremap("<M-l>", ":vertical resize +2<CR>")
 
 -- Escape redraws the screen and removes any search highlighting.
-nnoremap("<esc>", ":noh<return><esc>")
+maps.nnoremap("<esc>", ":noh<return><esc>")
 
 -- Easy CAPS
-inoremap("<c-u>", "<ESC>viwUi")
+maps.inoremap("<c-u>", "<ESC>viwUi")
 
 -- TAB
-nnoremap('te', ':tabedit ')
-nnoremap("<TAB>", ":bnext<CR>")
-nnoremap("<S-TAB>", ":bprevious<CR>")
+maps.nnoremap('te', ':tabedit ')
+maps.nnoremap("<TAB>", ":bnext<CR>")
+maps.nnoremap("<S-TAB>", ":bprevious<CR>")
 
 -- Better tabbing
-vnoremap("<", "<gv")
-vnoremap(">", ">gv")
+maps.vnoremap("<", "<gv")
+maps.vnoremap(">", ">gv")
 
 -- Better window splitting 
-nnoremap("ss", ":split<Return><C-w>w")
-nnoremap("sv", ":vsplit<Return><C-w>w")
+maps.nnoremap("ss", ":split<Return><C-w>w")
+maps.nnoremap("sv", ":vsplit<Return><C-w>w")
 
 -- Better window navigation
-nnoremap("<C-h>", "<C-w>h")
-nnoremap("<C-j>", "<C-w>j")
-nnoremap("<C-k>", "<C-w>k")
-nnoremap("<C-l>", "<C-w>l")
+maps.nnoremap("<C-h>", "<C-w>h")
+maps.nnoremap("<C-j>", "<C-w>j")
+maps.nnoremap("<C-k>", "<C-w>k")
+maps.nnoremap("<C-l>", "<C-w>l")
 
 -- Map Ctrl-Backspace to delete the previous word in insert mode.
-inoremap("<C-w>", "<C-\\><C-o>dB")
-inoremap("<C-BS>", "<C-\\><C-o>db")
+maps.inoremap("<C-w>", "<C-\\><C-o>dB")
+maps.inoremap("<C-BS>", "<C-\\><C-o>db")
 
 -- Symbols Outline
--- nnoremap("<Leader>s", ":SymbolsOutline<CR>")
+-- maps.nnoremap("<Leader>s", ":SymbolsOutline<CR>")
 
 -- Ranger
--- nnoremap("<C-s>", ":RnvimrToggle<CR>")
+-- maps.nnoremap("<C-s>", ":RnvimrToggle<CR>")
 
 -- WhichKey
--- nnoremap("<leader>", ":WhichKey '<Space>'<CR>", true)
+-- maps.nnoremap("<leader>", ":WhichKey '<Space>'<CR>", true)
 
 -- Comentary
-nnoremap("<space>/", '<cmd>lua require("utils/comment")()<CR>')
-vnoremap("<space>/", '<cmd>lua require("utils/comment")()<CR>')
+maps.nnoremap("<space>/", '<cmd>lua require("utils/comment")()<CR>')
+maps.vnoremap("<space>/", '<cmd>lua require("utils/comment")()<CR>')
 
 -- LSP
-nnoremap("gd", "<cmd>lua vim.lsp.buf.definition()<CR>", true)
-nnoremap("gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", true)
-nnoremap("gr", "<cmd>LspTrouble lsp_references<CR>", true)
-nnoremap("gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", true)
-nnoremap("<C-space>", "<cmd>lua vim.lsp.buf.hover()<CR>", true)
-vnoremap("<C-space>", "<cmd>RustHoverRange<CR>")
+maps.nnoremap("gd", "<cmd>lua vim.lsp.buf.definition()<CR>", true)
+maps.nnoremap("gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", true)
+maps.nnoremap("gr", "<cmd>LspTrouble lsp_references<CR>", true)
+maps.nnoremap("gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", true)
+maps.nnoremap("<C-space>", "<cmd>lua vim.lsp.buf.hover()<CR>", true)
+maps.vnoremap("<C-space>", "<cmd>RustHoverRange<CR>")
 
-nnoremap("ge", "<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>", true)
-nnoremap("gE", "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>", true)
-nnoremap("<silent><leader>a", "<cmd>lua vim.lsp.buf.code_action()<CR>", true)
-nnoremap("<Leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", true)
-nnoremap("<Leader>a", "<cmd>lua vim.lsp.buf.code_action()<CR>", true)
-vnoremap("<Leader>a", "<cmd>lua vim.lsp.buf.range_code_action()<CR>")
+maps.nnoremap("ge", "<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>", true)
+maps.nnoremap("gE", "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>", true)
+maps.nnoremap("<silent><leader>a", "<cmd>lua vim.lsp.buf.code_action()<CR>", true)
+maps.nnoremap("<Leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", true)
+maps.nnoremap("<Leader>a", "<cmd>lua vim.lsp.buf.code_action()<CR>", true)
+maps.vnoremap("<Leader>a", "<cmd>lua vim.lsp.buf.range_code_action()<CR>")
 
-nnoremap("<Leader>ld", "<cmd>LspTrouble lsp_definitions<CR>", true)
-nnoremap("<Leader>le", "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>", true)
-nnoremap("<Leader>lE", "<cmd>LspTroubleWorkspaceToggle<CR>", true)
+maps.nnoremap("<Leader>ld", "<cmd>LspTrouble lsp_definitions<CR>", true)
+maps.nnoremap("<Leader>le", "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>", true)
+maps.nnoremap("<Leader>lE", "<cmd>LspTroubleWorkspaceToggle<CR>", true)
 
 -- Telescope
-nnoremap("<C-f>", ':lua require("utils/telescope").search_files()<CR>')
-nnoremap("/", ':lua require("utils/telescope").search_in_buffer()<CR>')
-inoremap("<C-f>", '<Esc> :lua require("utils/telescope").search_in_buffer()<CR>')
-nnoremap("<Leader>fg", '<Esc> :lua require("telescope.builtin").live_grep()<CR>')
-nnoremap("<Leader>fd", '<Esc> :lua require("utils/telescope").search_dotfiles()<CR>')
+maps.nnoremap("<C-f>", ':lua require("utils/telescope").search_files()<CR>')
+maps.nnoremap("/", ':lua require("utils/telescope").search_in_buffer()<CR>')
+maps.inoremap("<C-f>", '<Esc> :lua require("utils/telescope").search_in_buffer()<CR>')
+maps.nnoremap("<Leader>fg", '<Esc> :lua require("telescope.builtin").live_grep()<CR>')
+maps.nnoremap("<Leader>fd", '<Esc> :lua require("utils/telescope").search_dotfiles()<CR>')
 

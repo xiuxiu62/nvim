@@ -74,6 +74,7 @@ lspconfig.tsserver.setup({
 		ts_utils.setup_client(client)
 	end,
 })
+
 lspconfig.cssls.setup({ capabilities = capabilities })
 lspconfig.jsonls.setup({
 	capabilities = capabilities,
@@ -85,6 +86,7 @@ lspconfig.jsonls.setup({
 		},
 	},
 })
+
 lspconfig.html.setup({ capabilities = capabilities })
 lspconfig.tailwindcss.setup({})
 lspconfig.svelte.setup({ capabilities = capabilities })

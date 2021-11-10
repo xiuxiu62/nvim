@@ -38,18 +38,10 @@ packer.startup(function(use)
     -----------------------
 	-- Telescope modules --
     -----------------------
-	use({
-		"nvim-telescope/telescope.nvim",
-		requires = { { "nvim-lua/plenary.nvim" }, { "nvim-lua/popup.nvim" } },
-	})
-	use({
-		"romgrk/fzy-lua-native",
-		requires = { { "nvim-telescope/telescope.nvim" } },
-	})
-	use({
-		"nvim-telescope/telescope-fzy-native.nvim",
-		requires = { { "nvim-telescope/telescope.nvim" } },
-	})
+    use("nvim-lua/plenary.nvim")
+	use({ "nvim-telescope/telescope.nvim", requires = { "nvim-lua/popup.nvim" } })
+	use({ "romgrk/fzy-lua-native", requires = { "nvim-telescope/telescope.nvim" } })
+	use({ "nvim-telescope/telescope-fzy-native.nvim", requires = { "nvim-telescope/telescope.nvim" } })
 
     -----------------
     -- Dev modules --
@@ -74,6 +66,10 @@ packer.startup(function(use)
     use('jose-elias-alvarez/nvim-lsp-ts-utils')
     -- Rust
     use('simrat39/rust-tools.nvim')
+    use({
+        'Saecki/crates.nvim',
+        requires = { { 'nvim-lua/plenary.nvim' } },
+    })
 	-- Debugging
 	use("mfussenegger/nvim-dap")
 	use({ "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } })
