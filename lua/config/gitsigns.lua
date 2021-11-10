@@ -1,7 +1,7 @@
 local M = {}
 
 function M.setup()
-    require('dapui').setup()
+    require('gitsigns').setup()
 end
 
 return M
