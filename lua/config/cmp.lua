@@ -25,6 +25,10 @@ function M.setup()
             { name = 'buffer' },
             { name = 'crates' },
         },
+        experimental = {
+            native_menu = false,
+            ghost_text = true,
+        }
     })
 end
 

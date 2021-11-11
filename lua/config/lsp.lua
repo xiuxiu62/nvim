@@ -1,14 +1,17 @@
 local M = {}
 
 function M.setup()
+    local sumneko_binary = "/usr/bin/lua-language-server"
     local lspconfig = require("lspconfig")
     local setup_auto_format = require('util.lsp').setup_auto_format
+    local maps = require('util.maps');
 
     setup_auto_format("c")
     setup_auto_format("cs")
     setup_auto_format("cpp")
     setup_auto_format("css")
     setup_auto_format("dart")
+    setup_auto_format("html")
     setup_auto_format("js")
     setup_auto_format("json")
     setup_auto_format("jsx")
@@ -21,9 +24,7 @@ function M.setup()
     local capabilities = vim.lsp.protocol.make_client_capabilities()
     capabilities.textDocument.completion.completionItem.snippetSupport = true
 
-    -----------------------
-    -- Webdev
-    -----------------------
+    -- Web
     require("null-ls").config({})
     require("lspconfig")["null-ls"].setup({})
     lspconfig.tsserver.setup({
@@ -97,17 +98,34 @@ function M.setup()
     lspconfig.clangd.setup({})
     lspconfig.pylsp.setup({})
 
-    -----------------------
     -- Lua
-    -----------------------
     local luadev = require("lua-dev").setup({
         lspconfig = {
-            cmd = { "lua-language-server" },
+            cmd = { sumneko_binary },
         }
     })
     require("lspconfig").sumneko_lua.setup(luadev)
 
     vim.lsp.handlers["textDocument/codeAction"] = require("lsputil.codeAction").code_action_handler
+
+    -- Mappings
+    maps.nnoremap("gd", "<cmd>lua vim.lsp.buf.definition()<CR>", true)
+    maps.nnoremap("gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", true)
+    maps.nnoremap("gr", "<cmd>LspTrouble lsp_references<CR>", true)
+    maps.nnoremap("gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", true)
+    maps.nnoremap("<C-space>", "<cmd>lua vim.lsp.buf.hover()<CR>", true)
+    maps.vnoremap("<C-space>", "<cmd>RustHoverRange<CR>")
+
+    maps.nnoremap("ge", "<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>", true)
+    maps.nnoremap("gE", "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>", true)
+    maps.nnoremap("<silent><leader>a", "<cmd>lua vim.lsp.buf.code_action()<CR>", true)
+    maps.nnoremap("<Leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", true)
+    maps.nnoremap("<Leader>a", "<cmd>lua vim.lsp.buf.code_action()<CR>", true)
+    maps.vnoremap("<Leader>a", "<cmd>lua vim.lsp.buf.range_code_action()<CR>")
+
+    maps.nnoremap("<Leader>ld", "<cmd>LspTrouble lsp_definitions<CR>", true)
+    maps.nnoremap("<Leader>le", "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>", true)
+    maps.nnoremap("<Leader>lE", "<cmd>LspTroubleWorkspaceToggle<CR>", true)
 end
 
 return M

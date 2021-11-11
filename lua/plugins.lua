@@ -80,7 +80,7 @@ function M.setup()
         use {
             'neovim/nvim-lspconfig',
             config = function()
-                require('config.lsp-config').setup()
+                require('config.lsp').setup()
             end
         }
         use('glepnir/lspsaga.nvim')
