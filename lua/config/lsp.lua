@@ -1,11 +1,24 @@
 local M = {}
 
 function M.setup()
-    local sumneko_binary = "/usr/bin/lua-language-server"
-    local lspconfig = require("lspconfig")
+    local lsp_config = require("lspconfig")
+    local saga = require('lspsaga')
     local setup_auto_format = require('util.lsp').setup_auto_format
     local maps = require('util.maps');
 
+    -- Ui
+    -- saga.init_lsp_saga()
+
+    -- Diagnostics
+    require("null-ls").config({
+        diagnostics = {
+            require("null-ls").builtins.formatting.stylua,
+            require("null-ls").builtins.completion.spell,
+        }
+    })
+    lsp_config["null-ls"].setup({})
+
+    -- Auto format
     setup_auto_format("c")
     setup_auto_format("cs")
     setup_auto_format("cpp")
@@ -24,10 +37,34 @@ function M.setup()
     local capabilities = vim.lsp.protocol.make_client_capabilities()
     capabilities.textDocument.completion.completionItem.snippetSupport = true
 
+    -- Lua
+    local sumneko_root_path = "/usr"
+    local sumneko_binary = sumneko_root_path.."/bin/lua-language-server"
+
+    lsp_config.sumneko_lua.setup({
+      cmd = { sumneko_binary };
+      settings = {
+        Lua = {
+          runtime = {
+            version = 'LuaJIT',
+            path = vim.split(package.path, ';'),
+          },
+          diagnostics = {
+            globals = {'vim'},
+          },
+          workspace = {
+            -- Make the server aware of Neovim runtime files
+            library = {
+              [vim.fn.expand('$VIMRUNTIME/lua')] = true,
+              [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true,
+            },
+          },
+        },
+      },
+    })
+
     -- Web
-    require("null-ls").config({})
-    require("lspconfig")["null-ls"].setup({})
-    lspconfig.tsserver.setup({
+    lsp_config.tsserver.setup({
         capabilities = capabilities,
         on_attach = function(client)
             -- disable tsserver formatting if you plan on formatting via null-ls
@@ -79,7 +116,7 @@ function M.setup()
         end,
     })
 
-    lspconfig.jsonls.setup({
+    lsp_config.jsonls.setup({
         capabilities = capabilities,
         commands = {
             Format = {
@@ -90,7 +127,7 @@ function M.setup()
         },
     })
 
-    lspconfig.html.setup({
+    lsp_config.html.setup({
         cmd = { "html-languageserver", "--stdio" },
         capabilities = capabilities,
         filetype = { "html" },
@@ -103,23 +140,14 @@ function M.setup()
         },
         settings = {}
     })
-    lspconfig.cssls.setup({
+    lsp_config.cssls.setup({
         cmd = { "css-languageserver", "--stdio" },
         capabilities = capabilities
     })
-    lspconfig.tailwindcss.setup({})
-    lspconfig.svelte.setup({ capabilities = capabilities })
-
-    lspconfig.clangd.setup({})
-    lspconfig.pylsp.setup({})
-
-    -- Lua
-    local luadev = require("lua-dev").setup({
-        lspconfig = {
-            cmd = { sumneko_binary },
-        }
-    })
-    require("lspconfig").sumneko_lua.setup(luadev)
+    lsp_config.tailwindcss.setup({})
+    lsp_config.svelte.setup({ capabilities = capabilities })
+    lsp_config.clangd.setup({})
+    lsp_config.pylsp.setup({})
 
     vim.lsp.handlers["textDocument/codeAction"] = require("lsputil.codeAction").code_action_handler
 

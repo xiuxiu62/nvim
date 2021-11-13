@@ -1,4 +1,4 @@
-function smartquit()
+local function smartquit()
     local buf_nums = vim.fn.len(vim.fn.getbufinfo({buflisted = 1}))
 
     if buf_nums == 1 then

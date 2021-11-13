@@ -14,24 +14,26 @@ function M.setup()
         -- Color theme
         use('tanvirtin/monokai.nvim')
         -- Status line
-        use('glepnir/galaxyline.nvim')
+        use {
+            'glepnir/galaxyline.nvim',
+            config = function() require('config.galaxyline').setup() end
+        }
         use('hoob3rt/lualine.nvim')
         -- Top buffer/tab line
         use {
             'akinsho/nvim-bufferline.lua',
-            config = function()
-                require('config.bufferline').setup()
-            end
+            config = function() require('config.bufferline').setup() end
         }
         -- Inline git tags
         use {
             'lewis6991/gitsigns.nvim',
-            config = function()
-                require('config.gitsigns').setup()
-            end
+            config = function() require('config.gitsigns').setup() end
         }
         -- File explorer
-        use({ 'Shougo/defx.nvim', run = ':UpdateRemotePlugins' })
+        use {
+            'Shougo/defx.nvim',
+            run = ':UpdateRemotePlugins'
+        }
         use('kristijanhusak/defx-git')
         use('kristijanhusak/defx-icons')
         -- Dev icons
@@ -47,31 +49,25 @@ function M.setup()
         -- Colorize hex and rgb values
         use {
             'norcalli/nvim-colorizer.lua',
-            config = function()
-                require('config.colorizer').setup()
-            end
+            config = function() require('config.colorizer').setup() end
         }
         -- Show buffer line indents
         use {
             'lukas-reineke/indent-blankline.nvim',
-            config = function()
-                require('config.indent-blankline').setup()
-            end
+            config = function() require('config.indent-blankline').setup() end
         }
 
         -----------------------
         -- Telescope modules --
         -----------------------
         use('nvim-lua/plenary.nvim')
-        use({
+        use('nvim-lua/popup.nvim')
+        use {
             'nvim-telescope/telescope.nvim',
-            requires = { { 'nvim-lua/popup.nvim' } },
-            config = function()
-                require('config.telescope').setup()
-            end
-        })
-        use({ 'romgrk/fzy-lua-native', requires = { 'nvim-telescope/telescope.nvim' } })
-        use({ 'nvim-telescope/telescope-fzy-native.nvim', requires = { 'nvim-telescope/telescope.nvim' } })
+            config = function()  require('config.telescope').setup() end
+        }
+        use('romgrk/fzy-lua-native')
+        use('nvim-telescope/telescope-fzy-native.nvim')
 
         -----------------
         -- Dev modules --
@@ -79,18 +75,14 @@ function M.setup()
         -- Lsp
         use {
             'neovim/nvim-lspconfig',
-            config = function()
-                require('config.lsp').setup()
-            end
+            config = function() require('config.lsp').setup() end
         }
         use('glepnir/lspsaga.nvim')
         use('jose-elias-alvarez/null-ls.nvim')
         -- Completion
         use {
             'hrsh7th/nvim-cmp',
-            config = function()
-                require('config.cmp').setup()
-            end
+            config = function() require('config.cmp').setup() end
         }
         use('hrsh7th/cmp-nvim-lsp')
         use('hrsh7th/cmp-buffer')
@@ -98,40 +90,30 @@ function M.setup()
         use {
             'nvim-treesitter/nvim-treesitter',
             run = ':TSUpdate',
-            config = function()
-                require('config.tree-sitter').setup()
-            end
+            config = function() require('config.tree-sitter').setup() end
         }
         use('nvim-treesitter/playground')
         use('windwp/nvim-ts-autotag')
         use('JoosepAlviste/nvim-ts-context-commentstring')
         -- Lua
-        use('folke/lua-dev.nvim')
         use('ckipp01/stylua-nvim')
         -- Typescript
         use('jose-elias-alvarez/nvim-lsp-ts-utils')
         -- Rust
         use {
             'simrat39/rust-tools.nvim',
-            config = function()
-                require('config.rust-tools').setup()
-            end
+            config = function() require('config.rust-tools').setup() end
         }
         use {
             'Saecki/crates.nvim',
             requires = { { 'nvim-lua/plenary.nvim' } },
-            config = function()
-                require('config.crates').setup()
-            end
+            config = function() require('config.crates').setup() end
         }
         -- Debugging
         use('mfussenegger/nvim-dap')
         use {
             'rcarriga/nvim-dap-ui',
-            requires = { { 'mfussenegger/nvim-dap' } },
-            config = function()
-                require('config.dap-ui').setup()
-            end
+            config = function() require('config.dap-ui').setup() end
         }
 
         ------------------
