@@ -79,7 +79,6 @@ function M.setup()
         end,
     })
 
-    lspconfig.cssls.setup({ capabilities = capabilities })
     lspconfig.jsonls.setup({
         capabilities = capabilities,
         commands = {
@@ -91,7 +90,23 @@ function M.setup()
         },
     })
 
-    lspconfig.html.setup({ capabilities = capabilities })
+    lspconfig.html.setup({
+        cmd = { "html-languageserver", "--stdio" },
+        capabilities = capabilities,
+        filetype = { "html" },
+        init_options = {
+            configurationSection = { "html", "css", "javascript" },
+            embeddedLanguages = {
+                css = true,
+                javascript = true,
+            }
+        },
+        settings = {}
+    })
+    lspconfig.cssls.setup({
+        cmd = { "css-languageserver", "--stdio" },
+        capabilities = capabilities
+    })
     lspconfig.tailwindcss.setup({})
     lspconfig.svelte.setup({ capabilities = capabilities })
 

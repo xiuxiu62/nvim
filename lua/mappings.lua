@@ -44,15 +44,12 @@ function M.setup()
     -- Symbols Outline
     -- maps.nnoremap("<Leader>s", ":SymbolsOutline<CR>")
 
-    -- Ranger
-    -- maps.nnoremap("<C-s>", ":RnvimrToggle<CR>")
-
     -- WhichKey
-    -- maps.nnoremap("<leader>", ":WhichKey '<Space>'<CR>", true)
+    maps.nnoremap("<Leader>", ":WhichKey '<Space>'<CR>", true)
 
     -- Comentary
-    maps.nnoremap("<space>/", '<cmd>lua require("util/comment")()<CR>')
-    maps.vnoremap("<space>/", '<cmd>lua require("util/comment")()<CR>')
+    maps.nnoremap("<Leader>;", '<cmd>lua require("util/comment")()<CR>')
+    maps.vnoremap("<Leader>;", '<cmd>lua require("util/comment")()<CR>')
 end
 
 return M
