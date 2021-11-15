@@ -1,5 +1,4 @@
 require('globals')
-require('util.maps').setup()
 require('general').setup()
 require('mappings').setup()
 require('plugins').setup()
