@@ -1,23 +1,24 @@
 local M = {}
 
 function M.setup()
-    local actions = require('telescope.actions')
-    local maps = require('util.maps');
+    local telescope = require "telescope"
+    local actions = require "telescope.actions"
+    local maps = require "util.maps"
 
-    require('telescope').setup{
-      defaults = {
-        mappings = {
-          i = {
-            ["<C-j>"] = actions.move_selection_better,
-            ["<C-k>"] = actions.move_selection_worse,
-            ["<C-q>"] = actions.send_to_qflist,
-            ["<Esc>"] = actions.close
-          },
-        },
-      }
+    telescope.setup {
+        defaults = {
+            mappings = {
+                i = {
+                    ["<C-j>"] = actions.move_selection_better,
+                    ["<C-k>"] = actions.move_selection_worse,
+                    ["<C-q>"] = actions.send_to_qflist,
+                    ["<Esc>"] = actions.close
+                },
+            },
+        }
     }
 
-    require('telescope').load_extension('fzy_native')
+    telescope.load_extension('fzy_native')
 
     maps.nnoremap("<C-f>", ':lua require("util/telescope").search_files()<CR>')
     maps.inoremap("<C-f>", '<Esc> :lua require("util/telescope").search_in_buffer()<CR>')

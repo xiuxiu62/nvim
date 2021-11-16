@@ -1,7 +1,9 @@
 local M = {}
 
 function M.setup()
-    require('gitsigns').setup()
+    local gitsigns = require "gitsigns"
+
+    gitsigns.setup()
 end
 
 return M

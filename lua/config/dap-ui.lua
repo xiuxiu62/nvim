@@ -1,7 +1,9 @@
 local M = {}
 
 function M.setup()
-    require('dapui').setup()
+    local dapui = require "dapui"
+
+    dapui.setup()
 end
 
 return M

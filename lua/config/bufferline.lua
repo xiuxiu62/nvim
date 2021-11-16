@@ -1,8 +1,9 @@
 local M = {}
 
 function M.setup()
-    -- colors for active , inactive buffer tabs
-    require("bufferline").setup({
+    local bufferline = require "bufferline"    
+
+    bufferline.setup {
         options = {
             separator_style = {'', ''},
             tab_size = 22,
@@ -10,7 +11,7 @@ function M.setup()
             view = "multiwindow",
             show_buffer_close_icons = true,
         },
-    })
+    }
 end
 
 return M

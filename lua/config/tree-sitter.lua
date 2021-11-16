@@ -1,26 +1,29 @@
 local M = {}
 
 function M.setup()
-    require('nvim-treesitter.configs').setup {
-      highlight = {
-        enable = true,
-        disable = {},
-      },
-      indent = {
-        enable = false,
-        disable = {},
-      },
-      ensure_installed = {
-        "tsx",
-        "toml",
-        "fish",
-        "php",
-        "json",
-        "yaml",
-        "swift",
-        "html",
-        "scss"
-      },
+    local nvim_treesitter = require "nvim-treesitter.configs"
+
+    nvim_treesitter.setup {
+        highlight = {
+            enable = true,
+            disable = {},
+        },
+        indent = {
+            enable = false,
+            disable = {},
+        },
+        ensure_installed = {
+            "fish",
+            "html",
+            "json",
+            "lua",
+            "php",
+            "rust",
+            "scss",
+            "tsx",
+            "toml",
+            "yaml",
+        },
     }
 end
 

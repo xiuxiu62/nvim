@@ -1,7 +1,9 @@
 local M = {}
 
 function M.setup()
-    require('crates').setup({
+    local crates = require "crates"
+
+    crates.setup {
         smart_insert = true, -- try to be smart about inserting versions
         avoid_prerelease = true, -- don't select a prerelease if the requirement does not have a suffix
         autoload = true, -- automatically run update when opening a Cargo.toml
@@ -76,7 +78,7 @@ function M.setup()
                 yanked     = "  yanked ",
             },
         },
-    })
+    }
 end
 
 return M

@@ -1,7 +1,9 @@
 local M = {}
 
 function M.setup()
-    require("rust-tools").setup({
+    local rust_tools = require "rust-tools"
+
+    rust_tools.setup {
         -- tools = {
         --     autoSetHints = true,
         --     hover_with_actions = true,
@@ -50,7 +52,7 @@ function M.setup()
         --         name = "rt_lldb"
         --     }
         -- }
-    })
+    }
 end
 
 return M

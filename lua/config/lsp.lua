@@ -1,16 +1,17 @@
 local M = {}
 
 function M.setup()
-    local lsp_config = require("lspconfig")
-    local saga = require('lspsaga')
-    local setup_auto_format = require('util.lsp').setup_auto_format
-    local maps = require('util.maps');
+    local lsp_config = require "lspconfig"
+    local saga = "lspsaga"
+    local null_ls = require "null-ls"
+    local setup_auto_format = require "util.lsp".setup_auto_format
+    local maps = require "util.maps"
 
     -- Ui
     -- saga.init_lsp_saga()
 
     -- Diagnostics
-    require("null-ls").config({
+    null_ls.config({
         diagnostics = {
             require("null-ls").builtins.formatting.stylua,
             require("null-ls").builtins.completion.spell,
