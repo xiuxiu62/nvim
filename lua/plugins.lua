@@ -10,19 +10,19 @@ packer.startup(function(use)
     -- Status line
     use { 
         "glepnir/galaxyline.nvim",
-        config = function() require "config.galaxyline".setup() end
+        config = function() require "config/galaxyline".setup() end
     }
 
     -- Top buffer/tab line
     use { 
         "akinsho/nvim-bufferline.lua",
-        config = function() require "config.bufferline".setup() end
+        config = function() require "config/bufferline".setup() end
     }
 
     -- Inline git tags
     use {
         "lewis6991/gitsigns.nvim",
-        config = function() require "config.gitsigns".setup() end
+        config = function() require "config/gitsigns".setup() end
     }
 
     -- File explorer
@@ -50,13 +50,13 @@ packer.startup(function(use)
     -- Colorize hex and rgb values
     use { 
         "norcalli/nvim-colorizer.lua",
-        config = function() require "config.colorizer".setup() end
+        config = function() require "config/colorizer".setup() end
     }
 
     -- Buffer line indents
     use {
         "lukas-reineke/indent-blankline.nvim",
-        config = function() require "config.indent-blankline".setup() end
+        config = function() require "config/indent-blankline".setup() end
     }
    
     -- Telescope 
@@ -64,7 +64,7 @@ packer.startup(function(use)
     use "nvim-lua/popup.nvim"
     use {
         "nvim-telescope/telescope.nvim",
-        config = function() require "config.telescope".setup() end
+        config = function() require "config/telescope".setup() end
     }
     use "romgrk/fzy-lua-native"
     use "nvim-telescope/telescope-fzy-native.nvim"
@@ -72,7 +72,7 @@ packer.startup(function(use)
     -- Lsp
     use {
         "neovim/nvim-lspconfig",
-        config = function() require "config.lsp".setup() end
+        config = function() require "config/lsp".setup() end
     }
     use "glepnir/lspsaga.nvim"
     use "jose-elias-alvarez/null-ls.nvim"
@@ -80,7 +80,7 @@ packer.startup(function(use)
     -- Completion
     use { 
         "hrsh7th/nvim-cmp",
-        config = function() require "config.cmp".setup() end
+        config = function() require "config/cmp".setup() end
     }
     use "hrsh7th/cmp-path"
     use "hrsh7th/cmp-buffer"
@@ -91,7 +91,7 @@ packer.startup(function(use)
     use { 
         "nvim-treesitter/nvim-treesitter", 
         run = ":TSUpdate",
-        config = function() require "config.tree-sitter".setup() end
+        config = function() require "config/tree-sitter".setup() end
     }
     use "nvim-treesitter/playground"
     use "windwp/nvim-ts-autotag"
@@ -106,18 +106,18 @@ packer.startup(function(use)
     -- Rust
     use {
         "simrat39/rust-tools.nvim",
-        config = function() require "config.rust-tools".setup() end
+        config = function() require "config/rust-tools".setup() end
     }
     use {
         "Saecki/crates.nvim",
-        config = function() require "config.crates".setup() end
+        config = function() require "config/crates".setup() end
     }
 
     -- Debugging
     use "mfussenegger/nvim-dap"
     use {
         "rcarriga/nvim-dap-ui",
-        config = function() require "config.dap-ui".setup() end
+        config = function() require "config/dap-ui".setup() end
     }
    
     -- Snippets
@@ -127,7 +127,7 @@ packer.startup(function(use)
     -- File tree
     use {
         "kyazdani42/nvim-tree.lua",
-        config = function() require "config.tree".setup() end
+        config = function() require "config/tree".setup() end
     }
 
     -- Comment stuff out
@@ -136,7 +136,7 @@ packer.startup(function(use)
     -- Auto pairs
     use { 
         "windwp/nvim-autopairs", 
-        config = function() require "config.autopairs".setup() end 
+        config = function() require "config/autopairs".setup() end 
     }
 
     -- Startify

@@ -1,5 +1,4 @@
 require "globals"
-require("util.maps")
-require("general").setup() 
-require("mappings").setup() 
-require("plugins").setup()
+require "general" 
+require "mappings" 
+require "plugins"
