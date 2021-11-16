@@ -1,8 +1,7 @@
 local M = {}
 
-local maps = require('util.maps')
-
 function M.setup()
+    local maps = require('util.maps')
     -- smart quit
     maps.nnoremap("qq", '<cmd>lua require("util/smartquit")()<CR>', true)
 

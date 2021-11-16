@@ -1,4 +1,4 @@
-local actions = require('telescope.actions')
+local actions = require "telescope.actions"
 
 local M = {}
 
