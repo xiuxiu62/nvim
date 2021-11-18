@@ -41,8 +41,9 @@ require("packer").startup {
     use "wbthomason/packer.nvim"
     use "lewis6991/impatient.nvim"
 
-    local_use("tjdevries", "complextras.nvim")
-    local_use("L3MON4D3", "LuaSnip")
+    use "tjdevries/complextras.nvim"
+    use "tjdevries/lsp_extensions.nvim"
+    use "L3MON4D3/LuaSnip"
 
     -- Color theme
     use "tanvirtin/monokai.nvim"

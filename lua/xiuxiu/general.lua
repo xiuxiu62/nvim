@@ -2,7 +2,6 @@ local monokai = require "monokai"
 
 monokai.setup {}
 
-vim.g.mapleader = " "
 vim.opt.syntax = "enable"
 vim.opt.wrap = false
 vim.opt.hidden = true

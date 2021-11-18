@@ -1,7 +1,7 @@
 local maps = require "xiuxiu.util.maps"
 
 -- smart quit
-maps.nnoremap("qq", '<cmd>lua require("xiuxiu.util.smartquit")()<CR>', true)
+maps.nnoremap("qq", '<cmd>lua require("xiuxiu.util.smartquit")()<CR>')
 
 -- Use alt +hjkl  to resize windows
 maps.nnoremap("<M-j>", ":resize -2<CR>")
@@ -14,11 +14,6 @@ maps.nnoremap("<esc>", ":noh<return><esc>")
 
 -- Easy CAPS
 maps.inoremap("<c-u>", "<ESC>viwUi")
-
--- TAB
-maps.nnoremap("te", ":tabedit ")
-maps.nnoremap("<TAB>", ":bnext<CR>")
-maps.nnoremap("<S-TAB>", ":bprevious<CR>")
 
 -- Better tabbing
 maps.vnoremap("<", "<gv")
@@ -42,7 +37,7 @@ maps.inoremap("<C-BS>", "<C-\\><C-o>db")
 -- maps.nnoremap("<Leader>s", ":SymbolsOutline<CR>")
 
 -- WhichKey
-maps.nnoremap("<Leader>", ":WhichKey '<Space>'<CR>", true)
+maps.nnoremap("<Leader>", ":WhichKey '<Space>'<CR>")
 
 -- Comentary
 maps.nnoremap("<Leader>;", '<cmd>lua require("xiuxiu.util.comment")()<CR>')

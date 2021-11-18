@@ -7,7 +7,7 @@ function M.setup()
 end
 
 function M.nnoremap(lhs, rhs, silent)
-  vim.api.nvim_set_keymap("n", lhs, rhs, { noremap = true, silent = silent })
+  vim.api.nvim_set_keymap("n", lhs, rhs, { noremap = true, silent = false })
 end
 
 function M.inoremap(lhs, rhs)
