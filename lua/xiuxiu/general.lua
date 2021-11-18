@@ -1,4 +1,4 @@
-local monokai = require('monokai')
+local monokai = require "monokai"
 
 monokai.setup {}
 
@@ -10,7 +10,7 @@ vim.opt.encoding = "utf-8"
 vim.opt.fileencoding = "utf-8"
 vim.opt.ruler = true
 vim.opt.cmdheight = 2
-vim.opt.iskeyword:append("-")
+vim.opt.iskeyword:append "-"
 vim.opt.mouse = "a"
 vim.opt.splitbelow = true
 vim.opt.splitright = true
@@ -27,11 +27,11 @@ vim.opt.background = "dark"
 vim.opt.showtabline = 4
 vim.opt.updatetime = 300
 vim.opt.timeoutlen = 500
-vim.opt.formatoptions:remove("cro")
+vim.opt.formatoptions:remove "cro"
 vim.opt.clipboard = "unnamedplus"
 vim.opt.autochdir = true
 vim.opt.termguicolors = true
 vim.opt.textwidth = 120
 vim.opt.colorcolumn = "120"
 vim.opt.completeopt = "menuone,noinsert,noselect"
-vim.opt.shortmess:append("c")
+vim.opt.shortmess:append "c"

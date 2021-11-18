@@ -1,7 +1,7 @@
-local maps = require('util.maps')
+local maps = require "xiuxiu.util.maps"
 
 -- smart quit
-maps.nnoremap("qq", '<cmd>lua require("util/smartquit")()<CR>', true)
+maps.nnoremap("qq", '<cmd>lua require("xiuxiu.util.smartquit")()<CR>', true)
 
 -- Use alt +hjkl  to resize windows
 maps.nnoremap("<M-j>", ":resize -2<CR>")
@@ -16,7 +16,7 @@ maps.nnoremap("<esc>", ":noh<return><esc>")
 maps.inoremap("<c-u>", "<ESC>viwUi")
 
 -- TAB
-maps.nnoremap('te', ':tabedit ')
+maps.nnoremap("te", ":tabedit ")
 maps.nnoremap("<TAB>", ":bnext<CR>")
 maps.nnoremap("<S-TAB>", ":bprevious<CR>")
 
@@ -45,5 +45,5 @@ maps.inoremap("<C-BS>", "<C-\\><C-o>db")
 maps.nnoremap("<Leader>", ":WhichKey '<Space>'<CR>", true)
 
 -- Comentary
-maps.nnoremap("<Leader>;", '<cmd>lua require("util/comment")()<CR>')
-maps.vnoremap("<Leader>;", '<cmd>lua require("util/comment")()<CR>')
+maps.nnoremap("<Leader>;", '<cmd>lua require("xiuxiu.util.comment")()<CR>')
+maps.vnoremap("<Leader>;", '<cmd>lua require("xiuxiu.util.comment")()<CR>')
