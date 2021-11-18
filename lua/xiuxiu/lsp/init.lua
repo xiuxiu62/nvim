@@ -6,10 +6,11 @@ end
 local lspconfig_util = require "lspconfig.util"
 local nvim_status = require "lsp-status"
 
-local maps = require "xiuxiu.util.maps"
-local telescope_mapper = require "xiuxiu.telescope.mappings"
+local inoremap = require("xiuxiu.util.maps").inoremap
+local nnoremap = require("xiuxiu.util.maps").nnoremap
 local handlers = require "xiuxiu.lsp.handlers"
 local status = require "xiuxiu.lsp.status"
+local telescope_mapper = require "xiuxiu.telescope.mappings"
 local setup_auto_format = require("xiuxiu.util.lsp").setup_auto_format
 
 -- Auto format
@@ -69,14 +70,15 @@ local custom_attach = function(client)
 
   nvim_status.on_attach(client)
 
-  maps.inoremap("<c-s>", "<cmd> lua vim.lsp.buf.signature_help()<CR>")
-  maps.nnoremap("gd", "<cmd> lua vim.lsp.buf.definition()<CR>")
-  maps.nnoremap("gD", "<cmd> lua vvim.lsp.buf.declaration()<CR>")
-  maps.nnoremap("gT", "<cmd> lua vvim.lsp.buf.type_definition()<CR>")
-  maps.nnoremap("<space>cr", "<cmd> lua vvim.lsp.buf.rename()<CR>")
-  maps.nnoremap("<space>gI", "<cmd> lua vhandlers.implementation()<CR>")
-  maps.nnoremap("<space>wd", "<cmd>lua R('xiuxiu.lsp.codelens').run()<CR>")
-  maps.nnoremap("<space>ww", "LspRestart")
+  inoremap("<c-s>", "<cmd> lua vim.lsp.buf.signature_help()<CR>")
+
+  nnoremap("gd", "<cmd> lua vim.lsp.buf.definition()<CR>")
+  nnoremap("gD", "<cmd> lua vvim.lsp.buf.declaration()<CR>")
+  nnoremap("gT", "<cmd> lua vvim.lsp.buf.type_definition()<CR>")
+  nnoremap("<space>cr", "<cmd> lua vvim.lsp.buf.rename()<CR>")
+  nnoremap("<space>gI", "<cmd> lua vhandlers.implementation()<CR>")
+  nnoremap("<space>wd", "<cmd>lua R('xiuxiu.lsp.codelens').run()<CR>")
+  nnoremap("<space>ww", "LspRestart")
 
   telescope_mapper("gr", "lsp_references", nil, true)
   telescope_mapper("gI", "lsp_implementations", nil, true)
@@ -85,7 +87,7 @@ local custom_attach = function(client)
   telescope_mapper("<space>ww", "lsp_code_actions", { ignore_filename = true }, true)
 
   if filetype ~= "lua" then
-    maps.nnoremap { "K", "<cmd>vim.lsp.buf.hover()<CR>", true }
+    nnoremap("K", "<cmd>vim.lsp.buf.hover()<CR>")
   end
 
   vim.bo.omnifunc = "v:lua.vim.lsp.omnifunc"
