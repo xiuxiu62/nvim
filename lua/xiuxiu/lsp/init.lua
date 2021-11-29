@@ -131,7 +131,6 @@ local sumneko_binary = sumneko_root_path .. "/bin/lua-language-server"
 local servers = {
   cssls = true,
   graphql = true,
-  html = true,
   jsonls = true,
   pyright = true,
   rust_analyzer = true,
@@ -182,27 +181,12 @@ local servers = {
     },
   },
 
-  -- sumneko_lua = {
-  --   cmd = { sumneko_binary },
-  --   settings = {
-  --     Lua = {
-  --       runtime = {
-  --         version = "LuaJIT",
-  --         path = vim.split(package.path, ";"),
-  --       },
-  --       diagnostics = {
-  --         globals = { "vim" },
-  --       },
-  --       workspace = {
-  --         -- Make the server aware of Neovim runtime files
-  --         library = {
-  --           [vim.fn.expand "$VIMRUNTIME/lua"] = true,
-  --           [vim.fn.expand "$VIMRUNTIME/lua/vim/lsp"] = true,
-  --         },
-  --       },
-  --     },
-  --   },
-  -- },
+  html = {
+    cmd = { "html-languageserver", "--stdio" },
+    filetypes = {
+      "html",
+    },
+  },
 
   tsserver = {
     cmd = { "typescript-language-server", "--stdio" },

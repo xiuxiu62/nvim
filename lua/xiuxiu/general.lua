@@ -1,36 +1,36 @@
-local monokai = require "monokai"
+local opt = vim.opt
 
-monokai.setup {}
-
-vim.opt.syntax = "enable"
-vim.opt.wrap = false
-vim.opt.hidden = true
-vim.opt.encoding = "utf-8"
-vim.opt.fileencoding = "utf-8"
-vim.opt.ruler = true
-vim.opt.cmdheight = 2
-vim.opt.iskeyword:append "-"
-vim.opt.mouse = "a"
-vim.opt.splitbelow = true
-vim.opt.splitright = true
-vim.opt.conceallevel = 0
-vim.opt.tabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.smarttab = true
-vim.opt.expandtab = true
-vim.opt.smartindent = true
-vim.opt.autoindent = true
-vim.opt.number = true
-vim.opt.cursorline = true
-vim.opt.background = "dark"
-vim.opt.showtabline = 4
-vim.opt.updatetime = 300
-vim.opt.timeoutlen = 500
-vim.opt.formatoptions:remove "cro"
-vim.opt.clipboard = "unnamedplus"
-vim.opt.autochdir = true
-vim.opt.termguicolors = true
-vim.opt.textwidth = 120
-vim.opt.colorcolumn = "120"
-vim.opt.completeopt = "menuone,noinsert,noselect"
-vim.opt.shortmess:append "c"
+opt.syntax = "enable"
+opt.wrap = false
+opt.hidden = true
+opt.encoding = "utf-8"
+opt.fileencoding = "utf-8"
+opt.ruler = true
+opt.cmdheight = 2
+opt.iskeyword:append "-"
+opt.mouse = "a"
+opt.splitbelow = true
+opt.splitright = true
+opt.conceallevel = 0
+opt.tabstop = 4
+opt.shiftwidth = 4
+opt.smarttab = true
+opt.relativenumber = true
+opt.showmatch = true
+opt.expandtab = true
+opt.smartindent = true
+opt.autoindent = true
+opt.number = true
+opt.cursorline = true
+opt.background = "dark"
+opt.showtabline = 4
+opt.updatetime = 300
+opt.timeoutlen = 500
+opt.formatoptions:remove "cro"
+opt.clipboard = "unnamedplus"
+opt.autochdir = true
+opt.termguicolors = true
+opt.textwidth = 120
+opt.colorcolumn = "120"
+opt.completeopt = "menuone,noinsert,noselect"
+opt.shortmess:append "c"

@@ -44,3 +44,8 @@ nnoremap("<Leader>", ":WhichKey '<Space>'<CR>")
 -- Comentary
 nnoremap("<Leader>;", "<cmd>lua require('xiuxiu.util.comment')()<CR>")
 vnoremap("<Leader>;", "<cmd>lua require('xiuxiu.util.comment')()<CR>")
+
+-- -- Rest
+-- nnoremap("<Leader>rf", "<Plug>RestNvim<CR>")
+-- nnoremap("<Leader>rp", "<Plug>RestNvimPreview<CR>")
+-- nnoremap("<Leader>rl", "<Plug>RestNvimLast<CR>")

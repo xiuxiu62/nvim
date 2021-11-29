@@ -136,6 +136,13 @@ require("packer").startup {
     use "mfussenegger/nvim-dap"
     use "rcarriga/nvim-dap-ui"
 
+    -- HTTP client
+    use {
+      "NTBBloodbath/rest.nvim",
+      ft = "http",
+      requires = { "nvim-lua/plenary.nvim" },
+    }
+
     -- Snippets
     use "hrsh7th/vim-vsnip"
 
